@@ -79,8 +79,28 @@ Each agent supports: `id`, `name`, `category`, `description`, `icon` (Lucide nam
 `status`, `tags`, `featured`, `page`, `color`, plus the detail-page content
 (`tagline`, `capabilities`, `features`, `prompts`, `examples`, `useCases`, `faq`).
 
-## Extending with a real AI API
+## Live AI (bring-your-own-key)
 
-The "Launch AI" buttons open a demo modal showing a canned example response. To make
-it live, wire the modal in `assets/js/agent-detail.js` to your AI endpoint
-(e.g. the Anthropic Messages API) keyed off the agent's `id`.
+The "Launch AI" button and prompt cards open an interactive chat backed by the
+[Anthropic Messages API](https://docs.anthropic.com/en/api/messages) (model
+`claude-opus-4-8`). Because the site is fully static with no backend, it uses a
+**bring-your-own-key** model:
+
+- The visitor pastes their own Anthropic API key once. It is stored only in their
+  browser's `localStorage` (`gaming_ai_anthropic_key`) and sent **directly** to
+  `api.anthropic.com` — never to any other server. A "Forget key" control clears it.
+- Browser calls are made with the `anthropic-dangerous-direct-browser-access: true`
+  header, which enables CORS for client-side requests.
+- Each agent answers in character via a system prompt generated from its catalog
+  metadata (name, tagline, description, capabilities) in `assets/js/ai-client.js`.
+- Without a key, the chat shows the agent's canned example response as an offline
+  preview, so the site is still useful to browse.
+
+The integration lives in [`assets/js/ai-client.js`](assets/js/ai-client.js) (API
+client + key storage) and the modal in
+[`assets/js/agent-detail.js`](assets/js/agent-detail.js).
+
+> **Note on keys:** a client-side key is visible to the user who entered it (it's
+> theirs) but should never be a key you don't want a browser to hold. For a
+> shared/production key, put a small serverless proxy (Cloudflare Workers, Vercel)
+> in front of the API and point `ENDPOINT` in `ai-client.js` at it instead.

@@ -160,35 +160,140 @@
     items.forEach(function (i) { io.observe(i); });
   }
 
-  // A lightweight, non-functional demo modal — the static site has no backend,
-  // so it shows a canned "this is where a live AI response would appear" panel.
+  // Interactive chat modal. With a saved Anthropic API key it sends the prompt
+  // to Claude (via AIClient) and renders the real reply; without a key it shows
+  // a key-entry panel plus the canned example so the agent is still useful to
+  // browse offline.
   function openModal(agent, prompt) {
     var existing = document.getElementById("demo-modal");
     if (existing) existing.remove();
-    var example = (agent.examples.filter(function (e) { return e.prompt === prompt; })[0]) || agent.examples[0];
-    var answer = example ? example.output : "In the live product, " + agent.name + " would answer here in real time.";
 
     var wrap = document.createElement("div");
     wrap.id = "demo-modal";
     wrap.setAttribute("role", "dialog");
     wrap.setAttribute("aria-modal", "true");
-    wrap.setAttribute("aria-label", agent.name + " demo");
+    wrap.setAttribute("aria-label", agent.name + " chat");
     wrap.className = "fixed inset-0 z-[100] flex items-center justify-center p-4";
+
     wrap.innerHTML =
       '<div class="absolute inset-0 bg-black/70 backdrop-blur-sm" data-close></div>' +
-      '<div class="glass-strong relative w-full max-w-lg rounded-2xl p-6">' +
+      '<div class="glass-strong relative w-full max-w-lg rounded-2xl p-6 max-h-[90vh] flex flex-col">' +
         '<div class="flex items-center justify-between gap-3">' +
           '<div class="flex items-center gap-3">' + C.iconTile(agent, 40) +
-            '<div><div class="font-bold">' + C.esc(agent.name) + '</div><div class="text-xs text-[var(--text-muted)]">Interactive demo</div></div>' +
+            '<div><div class="font-bold">' + C.esc(agent.name) + '</div>' +
+            '<div class="text-xs text-[var(--text-muted)]">Powered by Claude · ' + C.esc(window.AIClient ? window.AIClient.MODEL : "claude") + '</div></div>' +
           "</div>" +
           '<button class="btn btn-ghost p-2" data-close aria-label="Close"><i data-lucide="x" style="width:16px;height:16px;"></i></button>' +
         "</div>" +
-        '<div class="mt-5 rounded-xl bg-white/5 border border-white/10 p-3 text-sm"><span class="text-[var(--text-faint)]">You</span><br>' + C.esc(prompt) + "</div>" +
-        '<div class="mt-3 rounded-xl bg-white/5 border border-white/10 p-3 text-sm"><span class="accent-' + C.esc(agent.color) + '">' + C.esc(agent.name) + "</span><br>" + C.esc(answer) + "</div>" +
-        '<p class="mt-4 text-xs text-[var(--text-faint)] flex items-center gap-1.5"><i data-lucide="info" style="width:13px;height:13px;"></i> Demo only — connect a real AI API to make this live.</p>' +
+        '<div id="ai-body" class="mt-5 overflow-y-auto flex-1"></div>' +
+        '<div id="ai-footer" class="mt-3"></div>' +
       "</div>";
 
     document.body.appendChild(wrap);
+
+    var body = wrap.querySelector("#ai-body");
+    var footer = wrap.querySelector("#ai-footer");
+
+    function bubble(who, text, cls) {
+      return '<div class="rounded-xl bg-white/5 border border-white/10 p-3 text-sm mb-3 whitespace-pre-wrap">' +
+        '<span class="' + (cls || "text-[var(--text-faint)]") + '">' + C.esc(who) + "</span><br>" + C.esc(text) + "</div>";
+    }
+
+    // ---- Key-entry view ----
+    function renderKeyForm() {
+      body.innerHTML =
+        '<div class="rounded-xl border border-white/10 bg-white/5 p-4">' +
+          '<div class="flex items-center gap-2 font-semibold text-sm"><i data-lucide="key-round" class="accent-' + C.esc(agent.color) + '" style="width:16px;height:16px;"></i> Connect your Anthropic API key</div>' +
+          '<p class="mt-2 text-xs text-[var(--text-muted)] leading-relaxed">This static site has no backend, so it uses <strong>your own</strong> key to talk to Claude. ' +
+          'The key is stored only in this browser (localStorage) and sent directly to the Anthropic API — never to any other server.</p>' +
+          '<label for="ai-key" class="sr-only">Anthropic API key</label>' +
+          '<input id="ai-key" type="password" autocomplete="off" placeholder="sk-ant-..." ' +
+            'class="mt-3 w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm outline-none focus:border-white/30" />' +
+          '<div class="mt-3 flex items-center gap-2">' +
+            '<button id="ai-save" class="btn btn-primary text-sm flex-1"><i data-lucide="plug" style="width:15px;height:15px;"></i> Save & connect</button>' +
+            '<a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener" class="btn btn-ghost text-sm">Get a key</a>' +
+          "</div>" +
+        "</div>" +
+        '<div class="mt-4 text-xs text-[var(--text-faint)]">Example response (offline preview):</div>' +
+        '<div class="mt-2">' + bubble(agent.name, (agent.examples[0] && agent.examples[0].output) || "", "accent-" + C.esc(agent.color)) + "</div>";
+
+      footer.innerHTML = "";
+      if (window.lucide) window.lucide.createIcons();
+
+      var input = wrap.querySelector("#ai-key");
+      var save = wrap.querySelector("#ai-save");
+      function doSave() {
+        var v = (input.value || "").trim();
+        if (!v) { input.focus(); return; }
+        window.AIClient.setKey(v);
+        renderChat();
+      }
+      save.addEventListener("click", doSave);
+      input.addEventListener("keydown", function (e) { if (e.key === "Enter") doSave(); });
+      input.focus();
+    }
+
+    // ---- Chat view ----
+    function renderChat() {
+      body.innerHTML = "";
+      footer.innerHTML =
+        '<form id="ai-form" class="flex items-end gap-2">' +
+          '<textarea id="ai-input" rows="1" placeholder="Ask ' + C.esc(agent.name) + '…" ' +
+            'class="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm outline-none focus:border-white/30 resize-none"></textarea>' +
+          '<button type="submit" id="ai-send" class="btn btn-primary text-sm"><i data-lucide="send" style="width:15px;height:15px;"></i></button>' +
+        "</form>" +
+        '<div class="mt-2 flex items-center justify-between text-[11px] text-[var(--text-faint)]">' +
+          '<span class="inline-flex items-center gap-1"><i data-lucide="shield-check" style="width:12px;height:12px;"></i> Key stored in your browser only</span>' +
+          '<button id="ai-forget" class="hover:text-white underline-offset-2 hover:underline">Forget key</button>' +
+        "</div>";
+      if (window.lucide) window.lucide.createIcons();
+
+      var form = wrap.querySelector("#ai-form");
+      var input = wrap.querySelector("#ai-input");
+      var send = wrap.querySelector("#ai-send");
+      wrap.querySelector("#ai-forget").addEventListener("click", function () {
+        window.AIClient.clearKey();
+        renderKeyForm();
+      });
+
+      input.value = prompt || "";
+      input.focus();
+
+      function append(html) {
+        body.insertAdjacentHTML("beforeend", html);
+        body.scrollTop = body.scrollHeight;
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var text = (input.value || "").trim();
+        if (!text) return;
+        input.value = "";
+        send.disabled = true;
+        append(bubble("You", text));
+        var thinkingId = "t" + body.children.length;
+        append('<div id="' + thinkingId + '" class="rounded-xl bg-white/5 border border-white/10 p-3 text-sm mb-3 text-[var(--text-muted)]">' +
+          '<span class="accent-' + C.esc(agent.color) + '">' + C.esc(agent.name) + "</span><br><span class='opacity-70'>Thinking…</span></div>");
+
+        window.AIClient.complete(agent, text).then(function (reply) {
+          var el = document.getElementById(thinkingId);
+          if (el) el.outerHTML = bubble(agent.name, reply, "accent-" + C.esc(agent.color));
+          body.scrollTop = body.scrollHeight;
+        }).catch(function (err) {
+          var el = document.getElementById(thinkingId);
+          var msg;
+          if (err.status === 401) msg = "That API key was rejected (401). Use “Forget key” and try again.";
+          else if (err.status === 429) msg = "Rate limited (429). Wait a moment and retry.";
+          else msg = "Error: " + (err.message || "request failed") + ".";
+          if (el) el.outerHTML = '<div class="rounded-xl border border-rose-400/30 bg-rose-400/10 p-3 text-sm mb-3 text-rose-200">' + C.esc(msg) + "</div>";
+          body.scrollTop = body.scrollHeight;
+        }).then(function () { send.disabled = false; input.focus(); });
+      });
+    }
+
+    if (window.AIClient && window.AIClient.hasKey()) renderChat();
+    else renderKeyForm();
+
     if (window.lucide) window.lucide.createIcons();
 
     function close() {
