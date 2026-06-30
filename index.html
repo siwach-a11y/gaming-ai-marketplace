@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaming AI Marketplace · Discover AI Agents Built for Gamers</title>
+  <meta name="description" content="A marketplace of specialized AI agents for gamers — game discovery, esports schedules, play-to-earn analysis, free games, vouchers, reviews and SEA gaming news." />
+  <meta name="theme-color" content="#06070d" />
+  <link rel="canonical" href="https://example.github.io/gaming-ai-marketplace/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gaming AI Marketplace" />
+  <meta property="og:description" content="Discover specialized AI agents built for gamers." />
+  <meta property="og:url" content="https://example.github.io/gaming-ai-marketplace/" />
+  <meta property="og:image" content="https://example.github.io/gaming-ai-marketplace/assets/images/og.svg" />
+  <meta property="og:site_name" content="Gaming AI Marketplace" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gaming AI Marketplace" />
+  <meta name="twitter:description" content="Discover specialized AI agents built for gamers." />
+  <meta name="twitter:image" content="https://example.github.io/gaming-ai-marketplace/assets/images/og.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN, no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "class", theme: { extend: { fontFamily: { sans: ["Inter", "system-ui", "sans-serif"] } } } };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Gaming AI Marketplace",
+    "description": "Discover specialized AI agents built for gamers.",
+    "url": "https://example.github.io/gaming-ai-marketplace/"
+  }
+  </script>
+</head>
+<body data-root="" data-year="2026">
+  <!-- Animated gaming background -->
+  <div class="bg-stage" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orb one"></div>
+    <div class="bg-orb two"></div>
+    <div class="bg-orb three"></div>
+  </div>
+
+  <div id="navbar"></div>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="relative">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-28 sm:pb-20 text-center">
+        <span class="badge glass mx-auto"><i data-lucide="zap" style="width:13px;height:13px;" class="accent-violet"></i> 8 specialized agents · live now</span>
+        <h1 class="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
+          Gaming <span class="text-gradient">AI</span> Marketplace
+        </h1>
+        <p class="mt-5 text-lg sm:text-xl text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed">
+          Discover specialized AI agents built for gamers — from finding your next game to tracking esports, rewards, and play-to-earn.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a href="#agents" class="btn btn-primary"><i data-lucide="layout-grid" style="width:16px;height:16px;"></i> Explore Agents</a>
+          <a href="#featured" class="btn btn-ghost"><i data-lucide="star" style="width:16px;height:16px;"></i> Featured Agents</a>
+        </div>
+
+        <!-- ===================== SEARCH ===================== -->
+        <div class="mt-12 max-w-2xl mx-auto">
+          <div class="glass-strong rounded-2xl p-2 flex items-center gap-2">
+            <i data-lucide="search" class="ml-3 text-[var(--text-muted)]" style="width:18px;height:18px;"></i>
+            <label for="search-input" class="sr-only">Search agents</label>
+            <input id="search-input" type="search" autocomplete="off"
+                   placeholder="Search agents by name, category or description…"
+                   class="flex-1 bg-transparent border-0 outline-none text-[15px] placeholder:text-[var(--text-faint)] py-2" />
+            <button id="search-clear" class="btn btn-ghost p-2" aria-label="Clear search"><i data-lucide="x" style="width:15px;height:15px;"></i></button>
+          </div>
+          <p id="result-count" class="mt-2 text-xs text-[var(--text-faint)]" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORIES ===================== -->
+    <section id="categories" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="reveal flex items-end justify-between gap-4 mb-6">
+        <div>
+          <h2 class="section-title text-2xl sm:text-3xl">Browse by category</h2>
+          <p class="text-[var(--text-muted)] mt-1">Jump straight to the kind of agent you need.</p>
+        </div>
+      </div>
+      <div id="category-grid" class="reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </section>
+
+    <!-- ===================== FEATURED ===================== -->
+    <section id="featured" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="reveal flex items-end justify-between gap-4 mb-6">
+        <div>
+          <h2 class="section-title text-2xl sm:text-3xl">Featured agents</h2>
+          <p class="text-[var(--text-muted)] mt-1">Hand-picked agents to get you started.</p>
+        </div>
+        <a href="#agents" class="hidden sm:inline-flex btn btn-ghost text-sm">View all <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></a>
+      </div>
+      <div id="featured-grid" class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </section>
+
+    <!-- ===================== ALL AGENTS ===================== -->
+    <section id="agents" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 scroll-mt-20">
+      <div class="reveal flex items-end justify-between gap-4 mb-6">
+        <div>
+          <h2 class="section-title text-2xl sm:text-3xl">All agents</h2>
+          <p class="text-[var(--text-muted)] mt-1">The full marketplace. Use search above to filter.</p>
+        </div>
+      </div>
+      <div id="agent-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="search-empty" class="hidden text-center py-16 text-[var(--text-muted)]">
+        <i data-lucide="search-x" style="width:28px;height:28px;" class="mx-auto"></i>
+        <p class="mt-3">No agents match your search.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <!-- Scripts: data first, then shared components, then page logic -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="data/agents.js"></script>
+  <script src="components/cards.js"></script>
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

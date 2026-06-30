@@ -1,0 +1,691 @@
+[
+  {
+    "id": "game-discovery",
+    "name": "Game Discovery Agent",
+    "category": "Discovery",
+    "description": "Discover trending games, hidden gems, new releases, and personalized recommendations tuned to your taste.",
+    "icon": "compass",
+    "status": "Live",
+    "tags": [
+      "Recommendations",
+      "Trending",
+      "Indie",
+      "Discovery"
+    ],
+    "featured": true,
+    "page": "pages/game-discovery.html",
+    "color": "violet",
+    "tagline": "Your personal scout for the next game worth your time.",
+    "capabilities": [
+      "Surfaces trending titles across PC, console, and mobile",
+      "Finds hidden indie gems matched to genres you already love",
+      "Recommends games similar to any title you name",
+      "Tracks upcoming releases and adds them to a watchlist",
+      "Filters by genre, mood, playtime, and price"
+    ],
+    "features": [
+      {
+        "title": "Trending Games",
+        "icon": "trending-up",
+        "text": "See what the world is playing right now, refreshed continuously."
+      },
+      {
+        "title": "Hidden Gems",
+        "icon": "gem",
+        "text": "Under-the-radar indies scored by quality, not marketing budget."
+      },
+      {
+        "title": "Similar Games",
+        "icon": "shuffle",
+        "text": "Name one game you love and get a ranked shortlist of relatives."
+      },
+      {
+        "title": "Upcoming Releases",
+        "icon": "calendar-clock",
+        "text": "A personalized release radar with reminders."
+      },
+      {
+        "title": "Genre Search",
+        "icon": "search",
+        "text": "Drill into any genre, sub-genre, or mood in seconds."
+      }
+    ],
+    "prompts": [
+      "Find the best RPG games released this month.",
+      "Recommend games similar to Elden Ring.",
+      "Show hidden indie games under $20.",
+      "What co-op games can I finish in a weekend?",
+      "List upcoming releases for the next 30 days on PC."
+    ],
+    "examples": [
+      {
+        "prompt": "Recommend games similar to Elden Ring.",
+        "output": "Top matches: Lies of P (soulslike, strong combat), Lords of the Fallen (open-zone soulslike), Nioh 2 (faster, build-heavy), and Dragon's Dogma 2 (open-world, stamina-driven). Lies of P is the closest on pacing and difficulty curve."
+      },
+      {
+        "prompt": "Show hidden indie games under $20.",
+        "output": "Picks: Pizza Tower ($19.99, frantic platformer, 96% positive), Dredge ($19.99, eerie fishing roguelite), and Cassette Beasts ($19.99, monster-tamer). All score above 90% with under 10k reviews — genuinely under-the-radar."
+      }
+    ],
+    "useCases": [
+      "Beat decision paralysis when your library is huge but nothing fits.",
+      "Find your next game the night a title you loved wraps up.",
+      "Build a wishlist of upcoming releases worth pre-ordering."
+    ],
+    "faq": [
+      {
+        "q": "Which platforms are covered?",
+        "a": "PC, PlayStation, Xbox, Nintendo Switch, and major mobile storefronts."
+      },
+      {
+        "q": "How are recommendations generated?",
+        "a": "By matching genre, mechanics, mood, and player sentiment signals against your stated taste."
+      },
+      {
+        "q": "Is my play history required?",
+        "a": "No. You can describe what you like in plain language and get useful results immediately."
+      }
+    ]
+  },
+  {
+    "id": "play-to-earn",
+    "name": "Play-to-Earn Agent",
+    "category": "Blockchain",
+    "description": "Discover blockchain games that reward players, with ROI estimates, token economics, and a clear risk score.",
+    "icon": "coins",
+    "status": "Live",
+    "tags": [
+      "Web3",
+      "P2E",
+      "NFT",
+      "ROI"
+    ],
+    "featured": true,
+    "page": "pages/play-to-earn.html",
+    "color": "amber",
+    "tagline": "Cut through the hype with hard numbers on play-to-earn.",
+    "capabilities": [
+      "Estimates realistic ROI for a new player at today's prices",
+      "Breaks down reward structures and daily earning potential",
+      "Analyzes token economy health and emission schedules",
+      "Checks NFT requirements and secondary-market liquidity",
+      "Assigns a transparent risk score with the reasoning shown"
+    ],
+    "features": [
+      {
+        "title": "ROI Estimate",
+        "icon": "calculator",
+        "text": "Time-to-break-even modeled from entry cost and reward rates."
+      },
+      {
+        "title": "Reward Analysis",
+        "icon": "gift",
+        "text": "What you actually earn per hour, after sinks and fees."
+      },
+      {
+        "title": "Token Economy",
+        "icon": "chart-line",
+        "text": "Emission, burn, and supply pressure at a glance."
+      },
+      {
+        "title": "NFT Support",
+        "icon": "image",
+        "text": "Entry-asset costs and floor-price trends."
+      },
+      {
+        "title": "Risk Score",
+        "icon": "shield-alert",
+        "text": "A 0–100 risk rating with the factors that drove it."
+      }
+    ],
+    "prompts": [
+      "Compare the best P2E games this quarter.",
+      "Which blockchain game has the highest daily rewards?",
+      "Estimate ROI for a new player with a $200 budget.",
+      "What's the risk score for the top three P2E titles?",
+      "Explain the token economy of a P2E game I name."
+    ],
+    "examples": [
+      {
+        "prompt": "Estimate ROI for a new player with a $200 budget.",
+        "output": "At current prices a $200 starter set yields ~$3.10/day at average play. Break-even ≈ 64 days, assuming token price holds. Risk score: 72/100 (High) — earnings depend heavily on new-player inflows."
+      },
+      {
+        "prompt": "Which blockchain game has the highest daily rewards?",
+        "output": "Highest gross daily rewards currently trend to a card-battler at ~$5.40/day, but its risk score is 81/100 due to aggressive token emissions. A racing title pays ~$2.90/day at a far healthier 48/100 risk."
+      }
+    ],
+    "useCases": [
+      "Vet a P2E game before spending on entry NFTs.",
+      "Compare earning potential across several games objectively.",
+      "Understand whether a token economy is sustainable or inflationary."
+    ],
+    "faq": [
+      {
+        "q": "Is this financial advice?",
+        "a": "No. Estimates are illustrative and markets are volatile — always do your own research."
+      },
+      {
+        "q": "How is the risk score calculated?",
+        "a": "From token emission pressure, reward dependence on new players, liquidity, and entry cost."
+      },
+      {
+        "q": "Which chains are supported?",
+        "a": "Ethereum, Polygon, Ronin, Immutable, and Solana ecosystems."
+      }
+    ]
+  },
+  {
+    "id": "mobile-ranking",
+    "name": "Mobile Game Ranking Agent",
+    "category": "Mobile",
+    "description": "Browse top mobile games by free, paid, grossing, trending, and new — across the App Store and Google Play.",
+    "icon": "smartphone",
+    "status": "Live",
+    "tags": [
+      "Mobile",
+      "Charts",
+      "iOS",
+      "Android"
+    ],
+    "featured": true,
+    "page": "pages/mobile-ranking.html",
+    "color": "emerald",
+    "tagline": "The mobile charts, decoded and cross-referenced.",
+    "capabilities": [
+      "Tracks Top Free, Paid, and Grossing in real time",
+      "Spots fast-rising titles before they peak",
+      "Compares iOS and Android rankings side by side",
+      "Filters by country and category",
+      "Flags new releases gaining traction"
+    ],
+    "features": [
+      {
+        "title": "Top Free",
+        "icon": "download",
+        "text": "The most-downloaded free games right now."
+      },
+      {
+        "title": "Top Paid",
+        "icon": "tag",
+        "text": "Best-selling premium titles worth the upfront price."
+      },
+      {
+        "title": "Top Grossing",
+        "icon": "banknote",
+        "text": "Where players actually spend, ranked by revenue."
+      },
+      {
+        "title": "Trending",
+        "icon": "flame",
+        "text": "Climbers gaining rank fastest this week."
+      },
+      {
+        "title": "New Releases",
+        "icon": "sparkles",
+        "text": "Fresh launches breaking into the charts."
+      }
+    ],
+    "prompts": [
+      "Show the top free games on iOS today.",
+      "What's trending up fastest on Google Play this week?",
+      "List the top grossing mobile games in Southeast Asia.",
+      "Which new releases broke into the top 50 this week?",
+      "Compare a title's rank on iOS vs Android."
+    ],
+    "examples": [
+      {
+        "prompt": "What's trending up fastest on Google Play this week?",
+        "output": "Biggest climbers: a survival-craft title (#84 → #12), an idle RPG (#140 → #41), and a hyper-casual runner (#60 → #23). The survival-craft title's spike tracks a major content update three days ago."
+      },
+      {
+        "prompt": "List the top grossing mobile games in Southeast Asia.",
+        "output": "SEA top grossing: Mobile Legends: Bang Bang (#1 across ID/PH/VN), Honor of Kings (#2), Free Fire (#3). MOBAs and battle royale dominate regional revenue charts."
+      }
+    ],
+    "useCases": [
+      "Track how a game performs across regions and stores.",
+      "Catch breakout hits early for coverage or investment.",
+      "Compare monetization strength via grossing vs download charts."
+    ],
+    "faq": [
+      {
+        "q": "Which stores are tracked?",
+        "a": "Apple App Store and Google Play across 30+ countries."
+      },
+      {
+        "q": "How fresh is the data?",
+        "a": "Chart positions reflect the latest daily snapshot."
+      },
+      {
+        "q": "Can I filter by country?",
+        "a": "Yes — any supported country or a regional rollup like SEA."
+      }
+    ]
+  },
+  {
+    "id": "sea-news",
+    "name": "SEA Gaming News Agent",
+    "category": "News",
+    "description": "Summarize gaming news across Southeast Asia — daily headlines, patch notes, events, and releases, distilled by AI.",
+    "icon": "newspaper",
+    "status": "Live",
+    "tags": [
+      "News",
+      "SEA",
+      "Patch Notes",
+      "Esports"
+    ],
+    "featured": false,
+    "page": "pages/sea-news.html",
+    "color": "sky",
+    "tagline": "Every SEA gaming headline that matters, summarized in seconds.",
+    "capabilities": [
+      "Aggregates daily gaming news across SEA markets",
+      "Summarizes long patch notes into the changes that matter",
+      "Tracks regional events, launches, and tournaments",
+      "Surfaces release dates relevant to SEA players",
+      "Generates a concise AI digest you can skim in a minute"
+    ],
+    "features": [
+      {
+        "title": "Daily News",
+        "icon": "newspaper",
+        "text": "A regional headline roundup, refreshed every morning."
+      },
+      {
+        "title": "Patch Notes",
+        "icon": "file-text",
+        "text": "Long changelogs distilled to what actually changed."
+      },
+      {
+        "title": "Events",
+        "icon": "calendar",
+        "text": "Regional events, launches, and tournaments in one feed."
+      },
+      {
+        "title": "Releases",
+        "icon": "rocket",
+        "text": "Upcoming and just-launched titles for SEA."
+      },
+      {
+        "title": "AI Summary",
+        "icon": "bot",
+        "text": "A one-paragraph digest of the day's biggest stories."
+      }
+    ],
+    "prompts": [
+      "Summarize today's gaming news in Southeast Asia.",
+      "What changed in the latest Mobile Legends patch?",
+      "List gaming events happening in the Philippines this month.",
+      "Give me a one-paragraph digest of this week's SEA esports.",
+      "What major games are releasing in SEA next month?"
+    ],
+    "examples": [
+      {
+        "prompt": "Summarize today's gaming news in Southeast Asia.",
+        "output": "Top stories: a major publisher opened a Jakarta studio; Mobile Legends shipped a new hero with a balance pass; and a regional Valorant league announced a Manila finals. Quiet day for releases — most activity is esports and live-service updates."
+      },
+      {
+        "prompt": "What changed in the latest Mobile Legends patch?",
+        "output": "Headline changes: one new hero added, two assassins nerfed (cooldowns up ~10%), and a jungle XP rebalance that slows early ganks. Net effect: a slower, more team-fight-oriented early game."
+      }
+    ],
+    "useCases": [
+      "Stay current on SEA gaming without reading a dozen sites.",
+      "Catch patch impacts before your next ranked session.",
+      "Plan around regional events and tournament schedules."
+    ],
+    "faq": [
+      {
+        "q": "Which countries are covered?",
+        "a": "Indonesia, Philippines, Vietnam, Thailand, Malaysia, and Singapore."
+      },
+      {
+        "q": "How often is it updated?",
+        "a": "Headlines refresh daily; patch and event coverage updates as news breaks."
+      },
+      {
+        "q": "Can I get just a summary?",
+        "a": "Yes — ask for the AI digest and skip the full feed."
+      }
+    ]
+  },
+  {
+    "id": "free-games",
+    "name": "Free Games Agent",
+    "category": "Rewards",
+    "description": "Find games currently free to claim — giveaways, expiration dates, platform filters, and estimated value.",
+    "icon": "gift",
+    "status": "Live",
+    "tags": [
+      "Free",
+      "Giveaways",
+      "Deals",
+      "Epic"
+    ],
+    "featured": true,
+    "page": "pages/free-games.html",
+    "color": "rose",
+    "tagline": "Never miss a free game worth claiming.",
+    "capabilities": [
+      "Lists games free to keep right now",
+      "Shows exactly when each giveaway expires",
+      "Filters by platform and storefront",
+      "Estimates the normal retail value you're saving",
+      "Flags limited-time claims before they end"
+    ],
+    "features": [
+      {
+        "title": "Giveaways",
+        "icon": "gift",
+        "text": "Everything free to claim across major stores."
+      },
+      {
+        "title": "Expiration Dates",
+        "icon": "timer",
+        "text": "Countdown to each offer's deadline."
+      },
+      {
+        "title": "Platform Filters",
+        "icon": "filter",
+        "text": "Narrow to Epic, Steam, GOG, consoles, and more."
+      },
+      {
+        "title": "Estimated Value",
+        "icon": "badge-dollar-sign",
+        "text": "How much each freebie would normally cost."
+      }
+    ],
+    "prompts": [
+      "What games are free to claim right now?",
+      "Which free game giveaways expire this week?",
+      "Show free games on the Epic Games Store.",
+      "What's the total retail value of this week's freebies?",
+      "List free-to-keep PC games ending in the next 48 hours."
+    ],
+    "examples": [
+      {
+        "prompt": "What games are free to claim right now?",
+        "output": "Free to keep now: a story-driven adventure (Epic, normally $24.99, ends in 2 days), an indie roguelite (GOG, $14.99, ends in 5 days), and a co-op shooter weekend (Steam, free to play through Sunday)."
+      },
+      {
+        "prompt": "Which free game giveaways expire this week?",
+        "output": "Expiring soon: the Epic adventure (2 days), a strategy bundle on Humble (4 days), and a mobile premium title gone free (6 days). Combined retail value ≈ $63."
+      }
+    ],
+    "useCases": [
+      "Grow your library for free without checking five stores daily.",
+      "Claim high-value giveaways before they expire.",
+      "Find a free weekend game to play with friends tonight."
+    ],
+    "faq": [
+      {
+        "q": "Which stores are tracked?",
+        "a": "Epic Games Store, Steam, GOG, Prime Gaming, and console storefronts."
+      },
+      {
+        "q": "Are these free to keep or free to play?",
+        "a": "Both — each listing labels whether you keep the game permanently."
+      },
+      {
+        "q": "How is value estimated?",
+        "a": "From the game's standard regional retail price at time of the giveaway."
+      }
+    ]
+  },
+  {
+    "id": "esports",
+    "name": "Esports Schedule Agent",
+    "category": "Esports",
+    "description": "Track esports tournaments and matches — schedules, brackets, live streams, and prize pools in one place.",
+    "icon": "trophy",
+    "status": "Live",
+    "tags": [
+      "Esports",
+      "Tournaments",
+      "Live",
+      "Brackets"
+    ],
+    "featured": true,
+    "page": "pages/esports.html",
+    "color": "indigo",
+    "tagline": "Never miss a match from the teams and games you follow.",
+    "capabilities": [
+      "Lists upcoming matches for any game or team",
+      "Shows live and updating tournament brackets",
+      "Links directly to official live streams",
+      "Surfaces prize pools and standings",
+      "Sends a personalized match schedule"
+    ],
+    "features": [
+      {
+        "title": "Upcoming Matches",
+        "icon": "calendar-clock",
+        "text": "A schedule filtered to your games and teams."
+      },
+      {
+        "title": "Tournament Brackets",
+        "icon": "git-fork",
+        "text": "Live brackets that update as results land."
+      },
+      {
+        "title": "Live Streams",
+        "icon": "radio",
+        "text": "Direct links to official broadcasts."
+      },
+      {
+        "title": "Prize Pools",
+        "icon": "trophy",
+        "text": "What's on the line, by event."
+      }
+    ],
+    "prompts": [
+      "What esports matches are on today?",
+      "Show the bracket for the current Valorant Champions event.",
+      "When does my favorite Dota 2 team play next?",
+      "List tournaments with prize pools over $1M this year.",
+      "Where can I watch the League of Legends finals live?"
+    ],
+    "examples": [
+      {
+        "prompt": "What esports matches are on today?",
+        "output": "Today: Valorant — Team A vs Team B at 18:00 (group stage), Dota 2 — two upper-bracket matches from 14:00, and a CS2 regional final at 21:00. Three of the five have official English streams linked."
+      },
+      {
+        "prompt": "List tournaments with prize pools over $1M this year.",
+        "output": "Over $1M this year: The International (Dota 2), Valorant Champions, the League of Legends World Championship, and a major CS2 tournament. The International remains the largest single prize pool."
+      }
+    ],
+    "useCases": [
+      "Build a watch schedule around your favorite teams.",
+      "Follow a live bracket without refreshing five tabs.",
+      "Find which big-money tournaments are coming up."
+    ],
+    "faq": [
+      {
+        "q": "Which games are covered?",
+        "a": "Valorant, League of Legends, Dota 2, CS2, Mobile Legends, and more."
+      },
+      {
+        "q": "Are streams official?",
+        "a": "Links point to the event's official broadcasts where available."
+      },
+      {
+        "q": "Can I filter by team?",
+        "a": "Yes — follow specific teams to get a tailored schedule."
+      }
+    ]
+  },
+  {
+    "id": "voucher",
+    "name": "Gaming Voucher Agent",
+    "category": "Rewards",
+    "description": "Discover redeem codes and gaming vouchers — promo codes, expiration checks, rewards, and platform filters.",
+    "icon": "ticket",
+    "status": "Beta",
+    "tags": [
+      "Codes",
+      "Promos",
+      "Rewards",
+      "Vouchers"
+    ],
+    "featured": false,
+    "page": "pages/voucher.html",
+    "color": "fuchsia",
+    "tagline": "Working redeem codes, checked and sorted for you.",
+    "capabilities": [
+      "Finds active promo and redeem codes by game",
+      "Checks whether a code is still valid",
+      "Lists the rewards each code grants",
+      "Filters codes by platform and region",
+      "Flags codes about to expire"
+    ],
+    "features": [
+      {
+        "title": "Promo Codes",
+        "icon": "ticket",
+        "text": "Active codes across popular live-service games."
+      },
+      {
+        "title": "Expiration Check",
+        "icon": "timer",
+        "text": "Know which codes still work before you try them."
+      },
+      {
+        "title": "Rewards",
+        "icon": "gift",
+        "text": "Exactly what each code unlocks."
+      },
+      {
+        "title": "Platform Filter",
+        "icon": "filter",
+        "text": "Narrow to your platform and region."
+      }
+    ],
+    "prompts": [
+      "What redeem codes are active for Genshin Impact right now?",
+      "Are there working promo codes for Mobile Legends this week?",
+      "Which gaming voucher codes expire in the next 3 days?",
+      "Show codes that grant in-game currency only.",
+      "List active codes for my platform in Southeast Asia."
+    ],
+    "examples": [
+      {
+        "prompt": "What redeem codes are active for Genshin Impact right now?",
+        "output": "Active now: GENSHINGIFT (60 Primogems + 10k Mora, evergreen) plus two limited livestream codes granting ~300 Primogems total. The two limited codes expire in 36 hours — redeem those first."
+      },
+      {
+        "prompt": "Which gaming voucher codes expire in the next 3 days?",
+        "output": "Expiring within 3 days: two Mobile Legends event codes (skins + diamonds), one Honkai code (currency), and a platform store voucher worth ~$5. Four codes, all verified working today."
+      }
+    ],
+    "useCases": [
+      "Grab free in-game rewards without scouring social media.",
+      "Verify a code works before wasting a redemption attempt.",
+      "Catch limited-time livestream codes before they expire."
+    ],
+    "faq": [
+      {
+        "q": "How do you know a code still works?",
+        "a": "Codes are validity-checked and stamped with a last-verified time."
+      },
+      {
+        "q": "Why is this agent in Beta?",
+        "a": "Code coverage is expanding game by game; expect rapid additions."
+      },
+      {
+        "q": "Do codes vary by region?",
+        "a": "Yes — some are region-locked, so filter by your region."
+      }
+    ]
+  },
+  {
+    "id": "game-review",
+    "name": "Game Review Agent",
+    "category": "Reviews",
+    "description": "AI-powered review summaries — concise pros and cons, community ratings, and sentiment analysis for any game.",
+    "icon": "star",
+    "status": "Live",
+    "tags": [
+      "Reviews",
+      "Sentiment",
+      "Ratings",
+      "Pros & Cons"
+    ],
+    "featured": false,
+    "page": "pages/game-review.html",
+    "color": "teal",
+    "tagline": "Hundreds of reviews, summarized into a verdict you can trust.",
+    "capabilities": [
+      "Summarizes critic and player reviews into one verdict",
+      "Lists the most-cited pros and cons",
+      "Aggregates community ratings across sources",
+      "Runs sentiment analysis on player discussion",
+      "Highlights how opinion shifted after major patches"
+    ],
+    "features": [
+      {
+        "title": "Review Summary",
+        "icon": "file-text",
+        "text": "The consensus take in a few sentences."
+      },
+      {
+        "title": "Pros",
+        "icon": "thumbs-up",
+        "text": "What players consistently praise."
+      },
+      {
+        "title": "Cons",
+        "icon": "thumbs-down",
+        "text": "Recurring complaints, ranked by frequency."
+      },
+      {
+        "title": "Community Rating",
+        "icon": "star",
+        "text": "An aggregated score across review sources."
+      },
+      {
+        "title": "Sentiment Analysis",
+        "icon": "activity",
+        "text": "How positive the conversation actually is."
+      }
+    ],
+    "prompts": [
+      "Summarize reviews for the latest big AAA release.",
+      "What are the top pros and cons of a game I name?",
+      "Is community sentiment positive for this game right now?",
+      "How did reviews change after the 1.5 patch?",
+      "Give me a verdict in three sentences for a title."
+    ],
+    "examples": [
+      {
+        "prompt": "What are the top pros and cons of a game I name?",
+        "output": "Pros: gorgeous world design, tight combat, and a memorable soundtrack. Cons: a rocky launch with performance issues and a thin late-game. Net: strongly recommended now that patches have landed; sentiment is 84% positive."
+      },
+      {
+        "prompt": "How did reviews change after the 1.5 patch?",
+        "output": "Pre-1.5 sentiment sat at 61% positive, dragged down by bugs. Post-patch it climbed to 83% as performance and quest-blocking issues were fixed. The biggest swing came from PC players."
+      }
+    ],
+    "useCases": [
+      "Decide whether to buy without reading 50 reviews.",
+      "See whether a rough launch has since been fixed.",
+      "Get a balanced pros/cons view before a sale ends."
+    ],
+    "faq": [
+      {
+        "q": "Where do reviews come from?",
+        "a": "A blend of critic outlets and player reviews across major platforms."
+      },
+      {
+        "q": "Is sentiment just the score?",
+        "a": "No — sentiment analyzes the language of discussion, not only star ratings."
+      },
+      {
+        "q": "Does it account for patches?",
+        "a": "Yes — it can compare opinion before and after major updates."
+      }
+    ]
+  }
+]
