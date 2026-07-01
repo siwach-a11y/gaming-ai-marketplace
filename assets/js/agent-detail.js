@@ -199,6 +199,27 @@
         '<span class="' + (cls || "text-[var(--text-faint)]") + '">' + C.esc(who) + "</span><br>" + C.esc(text) + "</div>";
     }
 
+    // Agent reply bubble with an optional clickable "Sources" list from web search.
+    function aiBubble(text, sources) {
+      var accent = "accent-" + C.esc(agent.color);
+      var html = '<div class="rounded-xl bg-white/5 border border-white/10 p-3 text-sm mb-3">' +
+        '<span class="' + accent + '">' + C.esc(agent.name) + "</span>" +
+        '<div class="mt-1 whitespace-pre-wrap">' + C.esc(text) + "</div>";
+      if (sources && sources.length) {
+        html += '<div class="mt-3 pt-3 border-t border-white/10">' +
+          '<div class="text-[11px] uppercase tracking-wide text-[var(--text-faint)] mb-1.5">Sources</div>' +
+          '<div class="space-y-1">' +
+          sources.map(function (s) {
+            return '<a href="' + C.esc(s.url) + '" target="_blank" rel="noopener" ' +
+              'class="flex items-start gap-1.5 text-xs ' + accent + ' hover:underline break-words">' +
+              '<i data-lucide="external-link" class="mt-0.5 flex-none" style="width:12px;height:12px;"></i>' +
+              "<span>" + C.esc(s.title || s.url) + "</span></a>";
+          }).join("") +
+          "</div></div>";
+      }
+      return html + "</div>";
+    }
+
     // ---- Key-entry view ----
     function renderKeyForm() {
       body.innerHTML =
@@ -273,11 +294,12 @@
         append(bubble("You", text));
         var thinkingId = "t" + body.children.length;
         append('<div id="' + thinkingId + '" class="rounded-xl bg-white/5 border border-white/10 p-3 text-sm mb-3 text-[var(--text-muted)]">' +
-          '<span class="accent-' + C.esc(agent.color) + '">' + C.esc(agent.name) + "</span><br><span class='opacity-70'>Thinking…</span></div>");
+          '<span class="accent-' + C.esc(agent.color) + '">' + C.esc(agent.name) + "</span><br><span class='opacity-70'>Searching the web…</span></div>");
 
         window.AIClient.complete(agent, text).then(function (reply) {
           var el = document.getElementById(thinkingId);
-          if (el) el.outerHTML = bubble(agent.name, reply, "accent-" + C.esc(agent.color));
+          if (el) el.outerHTML = aiBubble(reply.text, reply.sources);
+          if (window.lucide) window.lucide.createIcons();
           body.scrollTop = body.scrollHeight;
         }).catch(function (err) {
           var el = document.getElementById(thinkingId);
