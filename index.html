@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gaming AI Marketplace · Discover AI Agents Built for Gamers</title>
   <meta name="description" content="A marketplace of specialized AI agents for gamers — game discovery, esports schedules, play-to-earn analysis, free games, vouchers, reviews and SEA gaming news." />
-  <meta name="theme-color" content="#06070d" />
+  <meta name="theme-color" content="#0a0b14" />
   <link rel="canonical" href="https://siwach-a11y.github.io/gaming-ai-marketplace/" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Gaming AI Marketplace" />
   <meta property="og:description" content="Discover specialized AI agents built for gamers." />
@@ -16,26 +15,21 @@
   <meta property="og:image" content="https://siwach-a11y.github.io/gaming-ai-marketplace/assets/images/og.svg" />
   <meta property="og:site_name" content="Gaming AI Marketplace" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Gaming AI Marketplace" />
   <meta name="twitter:description" content="Discover specialized AI agents built for gamers." />
   <meta name="twitter:image" content="https://siwach-a11y.github.io/gaming-ai-marketplace/assets/images/og.svg" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind (CDN, no build step) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode: "class", theme: { extend: { fontFamily: { sans: ["Inter", "system-ui", "sans-serif"] } } } };
   </script>
-
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,90 +40,90 @@
   }
   </script>
 </head>
-<body data-root="" data-year="2026">
-  <!-- Animated gaming background -->
+<body data-root="" data-year="2026" data-nav="Home">
   <div class="bg-stage" aria-hidden="true">
-    <div class="bg-grid"></div>
     <div class="bg-orb one"></div>
     <div class="bg-orb two"></div>
     <div class="bg-orb three"></div>
   </div>
 
-  <div id="navbar"></div>
+  <div class="app">
+    <aside id="sidebar"></aside>
 
-  <main>
-    <!-- ===================== HERO ===================== -->
-    <section class="relative">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-28 sm:pb-20 text-center">
-        <span class="badge glass mx-auto"><i data-lucide="zap" style="width:13px;height:13px;" class="accent-violet"></i> 8 specialized agents · live now</span>
-        <h1 class="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
-          Gaming <span class="text-gradient">AI</span> Marketplace
-        </h1>
-        <p class="mt-5 text-lg sm:text-xl text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed">
-          Discover specialized AI agents built for gamers — from finding your next game to tracking esports, rewards, and play-to-earn.
-        </p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a href="#agents" class="btn btn-primary"><i data-lucide="layout-grid" style="width:16px;height:16px;"></i> Explore Agents</a>
-          <a href="#featured" class="btn btn-ghost"><i data-lucide="star" style="width:16px;height:16px;"></i> Featured Agents</a>
-        </div>
+    <div class="app-main">
+      <header id="topbar"></header>
 
-        <!-- ===================== SEARCH ===================== -->
-        <div class="mt-12 max-w-2xl mx-auto">
-          <div class="glass-strong rounded-2xl p-2 flex items-center gap-2">
-            <i data-lucide="search" class="ml-3 text-[var(--text-muted)]" style="width:18px;height:18px;"></i>
-            <label for="search-input" class="sr-only">Search agents</label>
-            <input id="search-input" type="search" autocomplete="off"
-                   placeholder="Search agents by name, category or description…"
-                   class="flex-1 bg-transparent border-0 outline-none text-[15px] placeholder:text-[var(--text-faint)] py-2" />
-            <button id="search-clear" class="btn btn-ghost p-2" aria-label="Clear search"><i data-lucide="x" style="width:15px;height:15px;"></i></button>
+      <main class="px-4 sm:px-6 lg:px-8 py-6 max-w-[1200px] mx-auto">
+        <!-- ===================== HERO ===================== -->
+        <section class="grid lg:grid-cols-2 gap-6 items-stretch">
+          <div class="flex flex-col justify-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05]">
+              Discover <span class="text-gradient">AI Agents</span><br>Built for Gamers
+            </h1>
+            <p class="mt-4 text-[var(--text-muted)] max-w-xl leading-relaxed">
+              Find specialized AI agents that help you discover games, track esports, get rewards, read reviews, and level up your gaming experience.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#agents" class="btn btn-primary"><i data-lucide="layout-grid" style="width:16px;height:16px;"></i> Explore Agents</a>
+              <a href="#featured" class="btn btn-ghost"><i data-lucide="star" style="width:16px;height:16px;"></i> View Featured</a>
+            </div>
           </div>
-          <p id="result-count" class="mt-2 text-xs text-[var(--text-faint)]" aria-live="polite"></p>
-        </div>
-      </div>
-    </section>
+          <div class="hero-visual reveal" aria-hidden="true">
+            <div class="glow" style="width:220px;height:220px;background:rgba(124,92,255,0.55);top:10%;left:20%;"></div>
+            <div class="glow" style="width:180px;height:180px;background:rgba(34,211,238,0.4);bottom:8%;right:14%;"></div>
+            <div class="hero-chip accent-violet" style="top:18%;left:16%;"><i data-lucide="gamepad-2" style="width:20px;height:20px;"></i></div>
+            <div class="hero-chip accent-amber" style="top:24%;right:20%;animation-delay:-3s;"><i data-lucide="trophy" style="width:20px;height:20px;"></i></div>
+            <div class="hero-chip accent-emerald" style="bottom:22%;left:26%;animation-delay:-6s;"><i data-lucide="coins" style="width:20px;height:20px;"></i></div>
+            <div class="hero-chip accent-sky" style="bottom:26%;right:24%;animation-delay:-9s;"><i data-lucide="newspaper" style="width:20px;height:20px;"></i></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="icon-tile" style="width:96px;height:96px;border-radius:1.5rem;background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.22);">
+                <i data-lucide="bot" style="width:44px;height:44px;color:#c4b5fd;"></i>
+              </span>
+            </div>
+          </div>
+        </section>
 
-    <!-- ===================== CATEGORIES ===================== -->
-    <section id="categories" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-      <div class="reveal flex items-end justify-between gap-4 mb-6">
-        <div>
-          <h2 class="section-title text-2xl sm:text-3xl">Browse by category</h2>
-          <p class="text-[var(--text-muted)] mt-1">Jump straight to the kind of agent you need.</p>
-        </div>
-      </div>
-      <div id="category-grid" class="reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-    </section>
+        <!-- ===================== STATS ===================== -->
+        <section class="mt-6">
+          <div id="stats-grid" class="panel grid grid-cols-2 md:grid-cols-4"></div>
+        </section>
 
-    <!-- ===================== FEATURED ===================== -->
-    <section id="featured" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-      <div class="reveal flex items-end justify-between gap-4 mb-6">
-        <div>
-          <h2 class="section-title text-2xl sm:text-3xl">Featured agents</h2>
-          <p class="text-[var(--text-muted)] mt-1">Hand-picked agents to get you started.</p>
-        </div>
-        <a href="#agents" class="hidden sm:inline-flex btn btn-ghost text-sm">View all <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></a>
-      </div>
-      <div id="featured-grid" class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
-    </section>
+        <!-- ===================== CATEGORIES ===================== -->
+        <section id="categories" class="mt-10 scroll-mt-24">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="section-title text-xl sm:text-2xl">Categories</h2>
+            <a href="#agents" class="text-sm text-[var(--text-muted)] hover:text-white transition inline-flex items-center gap-1">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+          </div>
+          <div id="category-grid" class="grid grid-cols-4 lg:grid-cols-8 gap-3 reveal"></div>
+        </section>
 
-    <!-- ===================== ALL AGENTS ===================== -->
-    <section id="agents" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 scroll-mt-20">
-      <div class="reveal flex items-end justify-between gap-4 mb-6">
-        <div>
-          <h2 class="section-title text-2xl sm:text-3xl">All agents</h2>
-          <p class="text-[var(--text-muted)] mt-1">The full marketplace. Use search above to filter.</p>
-        </div>
-      </div>
-      <div id="agent-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
-      <div id="search-empty" class="hidden text-center py-16 text-[var(--text-muted)]">
-        <i data-lucide="search-x" style="width:28px;height:28px;" class="mx-auto"></i>
-        <p class="mt-3">No agents match your search.</p>
-      </div>
-    </section>
-  </main>
+        <!-- ===================== FEATURED ===================== -->
+        <section id="featured" class="mt-10 scroll-mt-24">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="section-title text-xl sm:text-2xl">Featured Agents</h2>
+            <a href="#agents" class="text-sm text-[var(--text-muted)] hover:text-white transition inline-flex items-center gap-1">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+          </div>
+          <div id="featured-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 reveal"></div>
+        </section>
 
-  <div id="footer"></div>
+        <!-- ===================== ALL AGENTS ===================== -->
+        <section id="agents" class="mt-10 scroll-mt-24">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="section-title text-xl sm:text-2xl">All Agents</h2>
+            <span class="text-sm text-[var(--text-muted)]">Use search to filter</span>
+          </div>
+          <div id="agent-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+          <div id="search-empty" class="hidden text-center py-16 text-[var(--text-muted)]">
+            <i data-lucide="search-x" style="width:28px;height:28px;" class="mx-auto"></i>
+            <p class="mt-3">No agents match your search.</p>
+          </div>
+        </section>
+      </main>
 
-  <!-- Scripts: data first, then shared components, then page logic -->
+      <div id="footer"></div>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="data/agents.js"></script>
   <script src="components/cards.js"></script>

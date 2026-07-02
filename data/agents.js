@@ -462,3 +462,28 @@ window.AGENTS = [
     ]
   }
 ];
+
+/**
+ * Augment each agent with display metadata used by the dashboard-style UI
+ * (star rating, review count, developer, created date). Kept here so the
+ * catalog stays the single source of truth.
+ */
+(function () {
+  var META = {
+    "game-discovery": { rating: 4.9, reviews: "1.2K" },
+    "play-to-earn":   { rating: 4.8, reviews: "980" },
+    "mobile-ranking": { rating: 4.7, reviews: "1.5K" },
+    "sea-news":       { rating: 4.8, reviews: "760" },
+    "free-games":     { rating: 4.9, reviews: "2.1K" },
+    "esports":        { rating: 4.7, reviews: "890" },
+    "voucher":        { rating: 4.8, reviews: "640" },
+    "game-review":    { rating: 4.9, reviews: "1.1K" }
+  };
+  (window.AGENTS || []).forEach(function (a) {
+    var m = META[a.id] || {};
+    a.rating = m.rating || 4.8;
+    a.reviews = m.reviews || "500+";
+    a.developer = a.developer || "Gaming AI Team";
+    a.created = a.created || "May 1, 2024";
+  });
+})();

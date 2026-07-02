@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mobile Game Ranking Agent · Gaming AI Marketplace</title>
   <meta name="description" content="Browse top mobile games by free, paid, grossing, trending, and new — across the App Store and Google Play." />
-  <meta name="theme-color" content="#06070d" />
+  <meta name="theme-color" content="#0a0b14" />
   <link rel="canonical" href="https://siwach-a11y.github.io/gaming-ai-marketplace/pages/mobile-ranking.html" />
 
   <meta property="og:type" content="website" />
@@ -42,57 +42,23 @@
   }
   </script>
 </head>
-<body data-root="../" data-year="2026" data-agent-id="mobile-ranking">
+<body data-root="../" data-year="2026" data-agent-id="mobile-ranking" data-nav="All Agents">
   <div class="bg-stage" aria-hidden="true">
-    <div class="bg-grid"></div>
     <div class="bg-orb one"></div>
     <div class="bg-orb two"></div>
     <div class="bg-orb three"></div>
   </div>
 
-  <div id="navbar"></div>
-
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-    <section id="agent-hero" class="reveal"></section>
-
-    <section class="reveal mt-16">
-      <h2 class="section-title text-2xl sm:text-3xl">Capabilities</h2>
-      <ul id="agent-capabilities" class="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3"></ul>
-    </section>
-
-    <section class="reveal mt-16">
-      <h2 class="section-title text-2xl sm:text-3xl">Features</h2>
-      <div id="agent-features" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
-    </section>
-
-    <section class="reveal mt-16">
-      <h2 class="section-title text-2xl sm:text-3xl">Sample prompts</h2>
-      <p class="text-[var(--text-muted)] mt-1">Tap a prompt to preview how the agent responds.</p>
-      <div id="agent-prompts" class="mt-6 grid sm:grid-cols-2 gap-3"></div>
-    </section>
-
-    <section class="reveal mt-16">
-      <h2 class="section-title text-2xl sm:text-3xl">Example outputs</h2>
-      <div id="agent-examples" class="mt-6 grid sm:grid-cols-2 gap-5"></div>
-    </section>
-
-    <section class="reveal mt-16">
-      <h2 class="section-title text-2xl sm:text-3xl">Suggested use cases</h2>
-      <div id="agent-usecases" class="mt-6 grid sm:grid-cols-3 gap-5"></div>
-    </section>
-
-    <section class="reveal mt-16">
-      <h2 class="section-title text-2xl sm:text-3xl">FAQ</h2>
-      <div id="agent-faq" class="mt-4 glass rounded-2xl px-5 sm:px-6"></div>
-    </section>
-
-    <section class="reveal mt-16">
-      <h2 class="section-title text-2xl sm:text-3xl">Related agents</h2>
-      <div id="agent-related" class="mt-6 grid sm:grid-cols-3 gap-4"></div>
-    </section>
-  </main>
-
-  <div id="footer"></div>
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar"></header>
+      <main class="px-4 sm:px-6 lg:px-8 py-6 max-w-[1200px] mx-auto">
+        <div id="agent-detail"></div>
+      </main>
+      <div id="footer"></div>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="../data/agents.js"></script>
