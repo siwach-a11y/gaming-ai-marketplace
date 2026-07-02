@@ -8,14 +8,14 @@
  *
  * Calls go straight to the Messages API using the documented
  * `anthropic-dangerous-direct-browser-access` header, which enables CORS for
- * browser-originated requests. Model: claude-opus-4-8. Responses are short
+ * browser-originated requests. Model: claude-opus-4-5. Responses are short
  * gaming-assistant replies, so we use a small max_tokens and skip extended
  * thinking to keep latency low.
  */
 (function () {
   var STORAGE_KEY = "gaming_ai_anthropic_key";
   var ENDPOINT = "https://api.anthropic.com/v1/messages";
-  var MODEL = "claude-opus-4-8";
+  var MODEL = "claude-opus-4-5";
   var API_VERSION = "2023-06-01";
 
   function getKey() {

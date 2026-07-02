@@ -83,7 +83,7 @@ Each agent supports: `id`, `name`, `category`, `description`, `icon` (Lucide nam
 
 The "Launch AI" button and prompt cards open an interactive chat backed by the
 [Anthropic Messages API](https://docs.anthropic.com/en/api/messages) (model
-`claude-opus-4-8`). Because the site is fully static with no backend, it uses a
+`claude-opus-4-5`). Because the site is fully static with no backend, it uses a
 **bring-your-own-key** model:
 
 - The visitor pastes their own Anthropic API key once. It is stored only in their
